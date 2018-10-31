@@ -1,0 +1,20 @@
+def split_by_size(s, k):
+  res = []
+  for i in xrange(len(s)/k):
+    res.append(s[i*k:(i+1)*k])
+  return res
+
+def remore_repetitions(s):
+  d = {}
+  res = []
+  for c in s:
+    if c not in d:
+      res.append(c)
+      d[c]=1
+  return ''.join(res)
+
+def merge_the_tools(s, k):
+  lines = split_by_size(s, k)
+  for l in lines:
+    print remore_repetitions(l)
+
