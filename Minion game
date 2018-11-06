@@ -1,23 +1,16 @@
-#!/usr/bin/env python
-
-S = raw_input()
-n = len(S)
-
-# consonents
-stuart = 0
-
-# vowels
-kevin = 0
-
-for i in range(n):
-    if S[i] in ('A', 'E', 'I', 'O', 'U'):
-        kevin += n - i
+def minion_game(string):
+    list_substring = []
+    score_stuart = 0
+    score_kevin = 0
+    for i in range(0, len(string)):
+        add = len(string) - i
+        if string[i] in ['A', 'E', 'I', 'O', 'U']:
+        	score_kevin += add
+        else:
+        	score_stuart += add
+    if score_stuart > score_kevin :
+        print("Stuart {:d}".format(score_stuart))
+    elif score_stuart < score_kevin:
+        print("Kevin {:d}".format(score_kevin))
     else:
-        stuart += n - i
-
-if kevin > stuart:
-    print 'Kevin', kevin
-elif stuart > kevin:
-    print 'Stuart', stuart
-else:
-    print 'Draw'
+        print("Draw")
